@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Update Account{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post">
+        {% csrf_token %}
+        <h2>Update Account</h2>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input name = "name_service" value="{{userAccs.name_service}}"" required type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input name = "username_service" value="{{userAccs.username_service}}"" required type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <textarea class="form-control" required name = "password_service" ">{{userAccs.password_service}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Update Recipe</button>
+      </form>
+
+</div>
+{% endblock body %}

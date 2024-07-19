@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Random Password Generator{% endblock title %}
+{% block body %}
+
+
+
+<div class="container">
+    <h1>Generate a <br><span>Random Password</span></h1>
+    <div class="display">
+        <input type="text" id="password" placeholder="Password">
+        <img src="/static/images/copy.png" onclick="copyPassword()">
+    </div>
+    <button onclick="createPassword()"><img src="/static/images/generate.png" alt="">Generate Password</button>
+</div>
+<script src="/static/script.js"></script>
+{% endblock body %}
