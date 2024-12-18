@@ -10,8 +10,10 @@ from django.contrib.auth.decorators import login_required
 def passw(request):
     return render(request, 'index.html')
 
+@login_required(login_url="/login/")
 def saved_passwords(request):
-    queryset = userAccount.objects.all()
+    queryset = userAccount.objects.filter(user = request.user)
+    # queryset = userAccount.objects.all()
     
     if request.GET.get('search'):
         queryset = queryset.filter(name_service__icontains = request.GET.get('search'))
@@ -19,6 +21,7 @@ def saved_passwords(request):
     context = {'useraccs':queryset}
     return render(request, 'saved.html', context)
 
+@login_required(login_url="/login/")
 def add_account(request):
     if request.method == "POST":
         data = request.POST
@@ -28,6 +31,7 @@ def add_account(request):
         password_service = data.get('password_service')
 
         userAccount.objects.create(
+            user = request.user,
             name_service = name_service,
             username_service = username_service,
             password_service = password_service
