@@ -26,3 +26,15 @@ function copyPassword(){
     passwordBox.select();
     document.execCommand("copy");
 }
+
+function togglePassword(inputId, button){
+    const passwordField = document.getElementById(inputId);
+    if(passwordField.type === "password"){
+        passwordField.type = "text";
+        button.textContent = "Hide";
+    }
+    else{
+        passwordField.type = "password";
+        button.textContent = "Show";
+    }
+}
