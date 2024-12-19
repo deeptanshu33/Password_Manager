@@ -33,7 +33,7 @@
             <td>{{useracc.username_service}}</td>
             <td>
                 <input type="password" id="password_{{ forloop.counter }}" class="password-input" value="{{ useracc.password_service }}" readonly>
-                <button class="toggle-button" onclick="togglePassword('password_{{ forloop.counter }}', this)">Show</button>
+                <button type="button" onclick="togglePassword('password_{{ forloop.counter }}', this)">Show</button>
             </td>
             <td><a href="/delete-acc/{{useracc.id}}" class="btn btn-danger">Delete</a></td>
             <td><a href="/update-acc/{{useracc.id}}" class="btn btn-success">Update</a></td>
