@@ -37,7 +37,7 @@ def add_account(request):
             password_service = password_service
         )
 
-        return redirect('/add')
+        return redirect('/saved')
     
     return render(request, 'add.html')
 
